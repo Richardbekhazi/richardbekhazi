@@ -6,9 +6,8 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-  title: "Richard Bekhazi | Technical Program Manager",
-  description: "Senior Technical Program Leader and Platform Strategy expert based in Ottawa, Canada. Specializing in FinTech, Data, and Engineering Management.",
-  keywords: ["Technical Program Manager", "Engineering Manager", "Data Strategy", "Bank of Canada", "FinTech", "Remote Leader"],
+  title: "Richard Bekhazi | Technical Program Leader",
+  description: "Executive Portfolio",
 };
 
 export default function RootLayout({
@@ -18,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${playfair.variable} font-sans bg-[#F9FAFB] text-slate-900 antialiased selection:bg-slate-900 selection:text-white`}>
+      {/* FIX: Removed 'bg-[#F9FAFB]' and 'text-slate-900'. 
+        Added 'bg-slate-950' and 'text-slate-200' for dark mode visibility.
+      */}
+      <body className={`${inter.variable} ${playfair.variable} font-sans bg-slate-950 text-slate-200 antialiased selection:bg-blue-500 selection:text-white`}>
         {children}
       </body>
     </html>
