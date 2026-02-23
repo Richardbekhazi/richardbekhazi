@@ -3,100 +3,107 @@ import { Monitor, Globe, Server, Users, BarChart, Code2 } from "lucide-react";
 
 export const siteConfig = {
   name: "Richard Bekhazi",
-  title: "Technical Program Leader | Engineering Management",
+  title: "Technical Lead & AI Systems Architect | Engineering Leadership",
   email: "RichardBekhazi@gmail.com",
-  location: "Ottawa, Canada",
+  location: "Ottawa, ON",
   socials: {
-    linkedin: "https://linkedin.com/in/your-profile", // Update this
+    linkedin: "https://linkedin.com/in/richardbekhazi",
   },
 };
 
 export const hero = {
   badge: "Available for Global Remote Leadership Roles",
-  heading: "Technical Program Leadership & Platform Strategy",
-  subheading: "Bridging the gap between complex engineering delivery and strategic business outcomes. I translate economic and business requirements into scalable technical realities.",
+  heading: "AI Systems Architecture & Technical Leadership",
+  subheading: "Building production-grade AI platforms and scalable enterprise systems. I bridge engineering excellence with business strategy in regulated environments.",
   primaryCta: "Schedule a Consultation",
   secondaryCta: "Download Resume",
 };
 
 export const about = {
   heading: "Executive Summary",
-  content: `I am a Technical Program & Delivery Leader with over a decade of experience driving digital transformation across FinTech, Banking, and Logistics sectors. 
+  content: `Engineering Leader and Systems Architect with 8+ years of experience building scalable, data-driven platforms and production-grade systems in highly regulated enterprise environments.
 
-  My background is unique: I possess the hard technical skills of a Senior Developer (Python, MATLAB, Systems Architecture) backed by a Master’s in Engineering Management. This allows me to lead cross-functional teams with authority, ensuring that technical roadmaps align perfectly with business goals. 
+  I combine deep technical expertise in Python, MATLAB, AI/ML systems, and enterprise architecture with proven leadership in cross-functional teams. My background includes designing secure AI platforms, optimizing complex data pipelines, and translating business requirements into robust technical solutions across international markets.
   
-  From modernizing inflation monitoring systems at Central Banks to leading ERP implementations across the MENA region, I specialize in governance, stakeholder alignment, and delivery excellence.`,
+  From architecting locally-hosted generative AI systems at Central Banks to leading enterprise platform implementations across the MENA region, I specialize in building scalable systems that bridge engineering excellence and business strategy.`,
 };
 
 export const experience = [
   {
     company: "Bank of Canada",
-    role: "Lead Systems Developer & Technical Engagement", // Slight title optimization for clarity
-    period: "Nov 2021 – Present",
-    description: "Driving the modernization of critical economic monitoring platforms using Python, Julia, and MATLAB.",
+    role: "Technical Lead & AI Systems Architect",
+    period: "Nov 2021 – Jan 2026",
+    description: "Architecting and deploying secure, production-grade systems including generative AI platforms and modernized economic monitoring infrastructure.",
     highlights: [
-      "Engineered data pipelines enabling Economists to monitor Canada’s inflation rate in real-time.",
-      "Led sprint planning cycles, managing development velocity, testing protocols, and release governance.",
-      "Negotiated technical specifications with non-technical stakeholders to define clear requirements.",
-      "Designed and delivered technical enablement training for internal bank employees and clients.",
+      "Architected and deployed secure, locally hosted generative AI platform using Ollama with open-source models (Meta LLaMA, Qwen).",
+      "Engineered cost-optimized, CPU-based inference environment navigating enterprise security and budget constraints.",
+      "Developed interactive front-end data applications using Python (Streamlit) for economists to query macroeconomic indicators.",
+      "Designed robust data pipelines and system integrations across MATLAB IRIS Toolbox, SQL Server, and Python.",
+      "Led agile engineering cycles, mentoring 11 team members with sprint planning, testing, and knowledge transfer.",
+      "Drove modernization of legacy enterprise platforms through performance optimization.",
     ],
   },
   {
-    company: "Unilog",
-    role: "Project Consultant & Delivery Engineer",
+    company: "UNILOG",
+    role: "Global Technical Project Lead",
     period: "Mar 2019 – Aug 2021",
-    description: "Managed global software implementation projects across Canada, South Africa, Dubai, Egypt, and Lebanon.",
+    description: "Directed cross-functional technical teams delivering enterprise Sage X3 implementations across international markets.",
     highlights: [
-      "Orchestrated cross-border project delivery, handling sales engineering, finance alignment, and software deployment.",
-      "Optimized client workflows through rigorous data analysis and system enhancements.",
-      "Provided high-touch on-site support and user training to ensure adoption in complex enterprise environments.",
-      "Operated trilingual (English, French, Arabic) to bridge communication gaps in international markets.",
+      "Directed cross-functional technical teams across South Africa and MENA regions.",
+      "Spearheaded comprehensive planning and delivery of Sage X3 enterprise platforms.",
+      "Designed horizontal APIs and robust data pipelines for financial, sales, and operational workflows.",
+      "Leveraged multilingual fluency (English, Arabic, French) to translate regional business models into technical solutions.",
+      "Engineered generalized automation utilities and AI-assisted analytics for system diagnostics.",
+      "Managed hands-on system deployments and technical onboarding programs.",
     ],
   },
   {
     company: "Bank El Mawarid",
-    role: "MIS Systems Engineer",
+    role: "Data Systems Engineer",
     period: "July 2017 – Feb 2019",
-    description: "Oversaw data integrity, compliance reporting, and operational process improvement.",
+    description: "Engineered automated data processing, audit workflows, and reporting abstractions for operations and compliance.",
     highlights: [
-      "Investigated and resolved complex data integrity issues reported by Operations and Compliance.",
-      "Implemented automated audit programs to meet strict banking regulatory requirements.",
-      "Generated executive-level dashboards (Daily/Weekly/Monthly) to support strategic decision-making.",
+      "Engineered and maintained automated data processing and audit workflows.",
+      "Established robust data integrity monitoring and traceability for operational controls.",
+      "Designed reporting abstractions unifying requirements across Operations, Compliance, and Management.",
+      "Managed implementation of critical system updates in regulated production environments.",
     ],
   },
   {
     company: "Supply Network Solution (SNS)",
-    role: "Technical Consultant Engineer",
+    role: "Technical Integration Lead",
     period: "Sept 2013 – July 2016",
-    description: "Led ERP and WMS implementations across the GCC region (KSA, UAE, Qatar).",
+    description: "Led enterprise ERP and WMS implementations and technical integrations across the GCC region.",
     highlights: [
-      "Integrated complex logistics products with third-party applications using custom APIs.",
-      "Customized Java codebases to meet bespoke client operational needs.",
-      "Conducted technical training sessions for end-users to ensure successful system handovers.",
+      "Led implementation and architectural customization of enterprise ERP and WMS platforms across KSA, UAE, Qatar, and Lebanon.",
+      "Designed and deployed robust API integrations and Java-based system customizations.",
+      "Developed foundational reporting and analytics components using Eclipse and Infor toolsets.",
+      "Delivered hands-on onboarding and technical training for client engineering teams.",
+      "Served as primary escalation point for diagnosing complex integration failures.",
     ],
   },
 ];
 
 export const skills = [
   {
-    category: "Program Leadership",
-    icon: Users,
-    items: ["Sprint Management", "Stakeholder Negotiation", "Technical Enablement", "Risk Analysis", "Requirements Gathering"],
-  },
-  {
-    category: "Data & Strategy",
-    icon: BarChart,
-    items: ["Economic Data Monitoring", "MIS Reporting", "Regulatory Compliance", "Business Intelligence", "Process Optimization"],
-  },
-  {
-    category: "Technical Stack",
+    category: "AI & ML Systems",
     icon: Code2,
-    items: ["Python & MATLAB", "SQL & Database Design", "Java & C#", "Linux/Unix Environment", "Git & Version Control"],
+    items: ["Local LLM Deployment (Ollama)", "Open-Source Models (LLaMA, Qwen)", "CPU-Based Inference Optimization", "Prompt Engineering", "System Benchmarking"],
   },
   {
-    category: "Tools & Platforms",
+    category: "Technical Leadership",
+    icon: Users,
+    items: ["Team Mentorship & Development", "Cross-Functional Leadership", "Agile/Scrum Engineering", "Global Project Management", "Technical Strategy"],
+  },
+  {
+    category: "Data & Architecture",
+    icon: BarChart,
+    items: ["Complex ETL & Data Pipelines", "RESTful APIs & Integrations", "System Architecture Design", "Database Design & Optimization", "Performance Tuning"],
+  },
+  {
+    category: "Programming & Tools",
     icon: Server,
-    items: ["Power BI", "Jira/Confluence", "ERP & WMS Systems", "Visio & Project", "Azure DevOps"],
+    items: ["Python, MATLAB, Julia, Java, SQL", "Streamlit & Data Applications", "Git & CI/CD Pipelines", "Enterprise Integration", "Cloud & Linux Environments"],
   },
 ];
 
@@ -111,6 +118,11 @@ export const education = [
     degree: "B.E. Computer & Communication Engineering",
     school: "American University of Beirut",
     year: "2012",
+  },
+  {
+    degree: "Lebanese & French Baccalaureate in General Science",
+    school: "College Saint Joseph Antoura",
+    year: "2007",
   },
 ];
 
