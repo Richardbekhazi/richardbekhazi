@@ -38,7 +38,7 @@ export const Hero = () => {
             <span className="relative">{hero.primaryCta}</span>
           </a>
           <a
-            href="/Richard_Bekhazi_Resume_2024.pdf" 
+            href="/Richard Bekhazi Resume.pdf" 
             target="_blank"
             className="px-8 py-4 glass-card text-slate-200 font-medium rounded-lg hover:bg-white/5 transition-all hover:border-white/20"
           >
