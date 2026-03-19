@@ -1,5 +1,5 @@
 // lib/data.ts
-import { Monitor, Globe, Server, Users, BarChart, Code2 } from "lucide-react";
+import { Server, Users, BarChart, Code2, Cpu, Globe2, Layers, Rocket } from "lucide-react";
 
 export const siteConfig = {
   name: "Richard Bekhazi",
@@ -11,21 +11,86 @@ export const siteConfig = {
   },
 };
 
+export const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Skills", href: "#skills" },
+  { label: "Education", href: "#education" },
+  { label: "Contact", href: "#contact" },
+];
+
 export const hero = {
-  badge: "Available for Global Remote Leadership Roles",
-  heading: "AI Systems Architecture & Technical Leadership",
-  subheading: "Building production-grade AI platforms and scalable enterprise systems. I bridge engineering excellence with business strategy in regulated environments.",
-  primaryCta: "Schedule a Consultation",
+  badge: "Open to Global Remote Leadership Roles",
+  typingWords: [
+    "AI Systems Architect",
+    "Technical Program Leader",
+    "Enterprise Platform Builder",
+    "Engineering Strategist",
+  ],
+  heading: "I build systems that",
+  headingHighlight: "move industries forward.",
+  subheading:
+    "From deploying secure generative AI at central banks to scaling enterprise platforms across 4 countries — I turn complex engineering challenges into production-ready solutions.",
+  primaryCta: "Let's Talk",
   secondaryCta: "Download Resume",
 };
 
-export const about = {
-  heading: "Executive Summary",
-  content: `Engineering Leader and Systems Architect with 8+ years of experience building scalable, data-driven platforms and production-grade systems in highly regulated enterprise environments.
+export const stats = [
+  { value: "8+", label: "Years Leading Engineering" },
+  { value: "4", label: "Countries Deployed" },
+  { value: "11", label: "Engineers Mentored" },
+  { value: "3", label: "Enterprise Platforms Built" },
+];
 
-  I combine deep technical expertise in Python, MATLAB, AI/ML systems, and enterprise architecture with proven leadership in cross-functional teams. My background includes designing secure AI platforms, optimizing complex data pipelines, and translating business requirements into robust technical solutions across international markets.
-  
-  From architecting locally-hosted generative AI systems at Central Banks to leading enterprise platform implementations across the MENA region, I specialize in building scalable systems that bridge engineering excellence and business strategy.`,
+export const projects = [
+  {
+    title: "Secure Generative AI Platform",
+    org: "Bank of Canada",
+    description:
+      "Architected and deployed an on-premise generative AI platform using Ollama with open-source LLMs (Meta LLaMA, Qwen). Engineered cost-optimized CPU-based inference within strict enterprise security constraints — no GPU, no cloud, no shortcuts.",
+    tags: ["Ollama", "LLaMA", "Python", "Enterprise Security", "CPU Inference"],
+    icon: Cpu,
+    color: "blue",
+  },
+  {
+    title: "Macroeconomic Data Applications",
+    org: "Bank of Canada",
+    description:
+      "Built interactive front-end data applications using Python & Streamlit for economists to query, visualize, and analyze macroeconomic indicators in real time. Modernized legacy MATLAB-based pipelines into modern Python workflows.",
+    tags: ["Streamlit", "Python", "MATLAB", "SQL Server", "Data Pipelines"],
+    icon: BarChart,
+    color: "indigo",
+  },
+  {
+    title: "Global ERP Platform Rollout",
+    org: "UNILOG — MENA & South Africa",
+    description:
+      "Directed cross-functional technical teams across multiple regions, delivering full Sage X3 enterprise implementations. Designed horizontal APIs and automation systems connecting financial, sales, and operational workflows.",
+    tags: ["Sage X3", "API Design", "Multi-Region", "ERP", "Automation"],
+    icon: Globe2,
+    color: "emerald",
+  },
+  {
+    title: "Enterprise WMS & Integration Architecture",
+    org: "SNS — KSA, UAE, Qatar, Lebanon",
+    description:
+      "Led implementation and architectural customization of WMS and ERP platforms across the GCC region. Designed Java-based integrations, analytics components, and delivered hands-on technical training for client engineering teams.",
+    tags: ["Java", "WMS", "ERP", "Eclipse", "System Integration"],
+    icon: Layers,
+    color: "amber",
+  },
+];
+
+export const about = {
+  heading: "Who I Am",
+  content: `I'm Richard — an engineer who cares about building things that actually work under pressure.
+
+I've spent the last 8+ years in the space where high-stakes systems meet real business outcomes. Whether it's deploying a generative AI platform at a central bank with zero cloud access, or rolling out enterprise systems across four countries in three languages — I thrive in environments where "it has to work perfectly" is the only acceptable outcome.
+
+I don't just write code. I design systems, lead teams, and translate business problems into architectures that scale. My work has touched AI/ML, economic data infrastructure, ERP platforms, and warehouse management systems — always in regulated, high-security environments where there's no room for "good enough."
+
+What drives me: the intersection of deep engineering and real-world impact.`,
 };
 
 export const experience = [
@@ -128,11 +193,26 @@ export const education = [
 
 export const awards = [
   {
-    title: "Mensa Member",
-    description: "Recognized High IQ Society",
+    title: "Mensa International Member",
+    description: "Top 2% — Recognized High IQ Society",
   },
   {
     title: "Technology Instructor",
-    description: "Promaxis IT & C'est Bon Ottawa (Leadership & Public Speaking)",
+    description: "Promaxis IT & C'est Bon Ottawa — Leadership & Public Speaking",
+  },
+];
+
+export const philosophy = [
+  {
+    title: "Ship It Right",
+    description: "Production systems don't get second chances. I build with the rigor of someone who knows what a 3 AM incident call feels like.",
+  },
+  {
+    title: "Lead by Building",
+    description: "The best technical leaders write code. I stay hands-on because architecture decisions should come from someone who feels the pain of bad ones.",
+  },
+  {
+    title: "Bridge the Gap",
+    description: "Most projects fail at the translation layer — between business needs and technical reality. That's where I live.",
   },
 ];

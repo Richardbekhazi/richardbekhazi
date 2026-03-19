@@ -4,7 +4,7 @@ import { education, awards } from "../../lib/data";
 
 export const Education = () => {
   return (
-    <section className="py-24 px-6 md:px-12 border-t border-slate-800/50">
+    <section id="education" className="py-24 px-6 md:px-12 border-t border-slate-800/50">
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
           <h2 className="text-3xl font-playfair font-bold mb-12 text-slate-100">Education</h2>
@@ -22,6 +22,7 @@ export const Education = () => {
                 <div className="flex justify-between items-center mt-2">
                   <span className="text-slate-500 text-sm font-mono">{edu.year}</span>
                 </div>
+                {edu.note && <p className="text-slate-400 text-sm mt-2 italic">{edu.note}</p>}
               </motion.div>
             ))}
           </div>

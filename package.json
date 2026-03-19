@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node -e \"require('fs').copyFileSync('CNAME','docs/CNAME')\"",
     "start": "next start",
     "lint": "eslint"
   },

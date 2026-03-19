@@ -4,7 +4,7 @@ import { experience } from  "../../lib/data";
 
 export const Experience = () => {
   return (
-    <section className="py-32 px-6 md:px-12">
+    <section id="experience" className="py-32 px-6 md:px-12">
       <div className="max-w-5xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0 }}

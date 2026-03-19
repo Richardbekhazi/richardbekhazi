@@ -40,3 +40,26 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Shimmer animation for CTA button */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+/* Blinking cursor for typing effect */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s infinite;
+}
+
+/* Smooth section scrolling offset for fixed navbar */
+section[id] {
+  scroll-margin-top: 5rem;
+}

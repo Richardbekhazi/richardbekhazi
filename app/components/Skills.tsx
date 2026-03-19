@@ -4,7 +4,7 @@ import { skills } from "../../lib/data";
 
 export const Skills = () => {
   return (
-    <section className="py-32 px-6 md:px-12 relative overflow-hidden">
+    <section id="skills" className="py-32 px-6 md:px-12 relative overflow-hidden">
       {/* Subtle background highlight for this section */}
       <div className="absolute inset-0 bg-blue-900/5 -skew-y-3 transform origin-top-left z-[-1]" />
 
