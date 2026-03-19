@@ -45,7 +45,7 @@ export const Navbar = () => {
             href="#contact"
             className="px-5 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-500 transition-colors"
           >
-            Hire Me
+            Let's Connect
           </a>
         </div>
 
@@ -84,7 +84,7 @@ export const Navbar = () => {
                 onClick={() => setMobileOpen(false)}
                 className="block w-full text-center px-5 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-500 transition-colors"
               >
-                Hire Me
+                Let's Connect
               </a>
             </div>
           </motion.div>

@@ -48,7 +48,7 @@ export const projects = [
     title: "Secure Generative AI Platform",
     org: "Bank of Canada",
     description:
-      "Architected and deployed an on-premise generative AI platform using Ollama with open-source LLMs (Meta LLaMA, Qwen). Engineered cost-optimized CPU-based inference within strict enterprise security constraints — no GPU, no cloud, no shortcuts.",
+      "Architected and deployed an on-premise generative AI platform using Ollama with open-source LLMs (Meta LLaMA, Qwen). Engineered cost-optimized CPU-based inference within strict enterprise security constraints — delivering AI capabilities without cloud dependency.",
     tags: ["Ollama", "LLaMA", "Python", "Enterprise Security", "CPU Inference"],
     icon: Cpu,
     color: "blue",
@@ -84,13 +84,13 @@ export const projects = [
 
 export const about = {
   heading: "Who I Am",
-  content: `I'm Richard — an engineer who cares about building things that actually work under pressure.
+  content: `I'm Richard — an engineer who genuinely enjoys solving hard problems with great people.
 
-I've spent the last 8+ years in the space where high-stakes systems meet real business outcomes. Whether it's deploying a generative AI platform at a central bank with zero cloud access, or rolling out enterprise systems across four countries in three languages — I thrive in environments where "it has to work perfectly" is the only acceptable outcome.
+Over the past 8+ years, I've had the privilege of working where technology meets real impact. From deploying a generative AI platform at a central bank to rolling out enterprise systems across four countries in three languages — I love the challenge of making complex things work well.
 
-I don't just write code. I design systems, lead teams, and translate business problems into architectures that scale. My work has touched AI/ML, economic data infrastructure, ERP platforms, and warehouse management systems — always in regulated, high-security environments where there's no room for "good enough."
+I design systems, lead teams, and bridge the gap between business needs and technical execution. My work spans AI/ML, economic data infrastructure, ERP platforms, and warehouse management — often in regulated environments where reliability and trust really matter.
 
-What drives me: the intersection of deep engineering and real-world impact.`,
+What drives me: building things that make a difference, alongside people I can learn from.`,
 };
 
 export const experience = [
@@ -204,15 +204,15 @@ export const awards = [
 
 export const philosophy = [
   {
-    title: "Ship It Right",
-    description: "Production systems don't get second chances. I build with the rigor of someone who knows what a 3 AM incident call feels like.",
+    title: "Get It Right",
+    description: "I care about quality because production systems serve real people. Thoughtful engineering up front saves everyone time and stress down the road.",
   },
   {
     title: "Lead by Building",
-    description: "The best technical leaders write code. I stay hands-on because architecture decisions should come from someone who feels the pain of bad ones.",
+    description: "I stay hands-on because the best architecture decisions come from understanding the details. Leading a team and writing code aren't mutually exclusive.",
   },
   {
     title: "Bridge the Gap",
-    description: "Most projects fail at the translation layer — between business needs and technical reality. That's where I live.",
+    description: "The most interesting challenges live between business needs and technical reality. I enjoy making those two worlds speak the same language.",
   },
 ];

@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node -e \"require('fs').copyFileSync('CNAME','docs/CNAME')\"",
+    "postbuild": "node -e \"const fs=require('fs');fs.copyFileSync('CNAME','docs/CNAME');fs.writeFileSync('docs/.nojekyll','')\"",
     "start": "next start",
     "lint": "eslint"
   },
