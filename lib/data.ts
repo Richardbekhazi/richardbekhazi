@@ -17,7 +17,6 @@ export const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
 ];
 
 export const hero = {

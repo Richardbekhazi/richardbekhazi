@@ -43,7 +43,7 @@ export const Contact = () => {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500"> Together.</span>
           </h2>
           <p className="text-slate-400 text-lg leading-relaxed max-w-lg mx-auto">
-            Open to Technical Program Management, Platform Strategy, and AI Engineering Leadership roles — remote or Ottawa-based.
+            I&apos;m always interested in meaningful work with great teams. Let&apos;s see if there&apos;s a fit.
           </p>
         </motion.div>
 
@@ -156,12 +156,12 @@ export const Contact = () => {
             </div>
 
             <div className="glass-card rounded-2xl p-8">
-              <h3 className="text-lg font-bold text-slate-100 mb-3">What I&apos;m looking for</h3>
+              <h3 className="text-lg font-bold text-slate-100 mb-3">What I bring to the table</h3>
               <ul className="space-y-2 text-slate-400 text-sm">
-                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Technical Program Management</li>
-                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Platform & AI Engineering Leadership</li>
-                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Remote or Ottawa-based roles</li>
-                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>High-impact, mission-driven teams</li>
+                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>8+ years leading engineering across 4 countries</li>
+                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>AI/ML systems deployed in regulated environments</li>
+                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Fluent in English, French & Arabic</li>
+                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Available remote or Ottawa-based</li>
               </ul>
             </div>
           </motion.div>
