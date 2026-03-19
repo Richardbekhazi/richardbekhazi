@@ -30,7 +30,7 @@ export const hero = {
   heading: "I build systems that",
   headingHighlight: "move industries forward.",
   subheading:
-    "From deploying secure generative AI at central banks to scaling enterprise platforms across 4 countries — I turn complex engineering challenges into production-ready solutions.",
+    "From deploying secure generative AI at central banks to scaling enterprise platforms across 4 countries, I turn complex engineering challenges into production-ready solutions.",
   primaryCta: "Let's Talk",
   secondaryCta: "Download Resume",
 };
@@ -47,7 +47,7 @@ export const projects = [
     title: "Secure Generative AI Platform",
     org: "Bank of Canada",
     description:
-      "Architected and deployed an on-premise generative AI platform using Ollama with open-source LLMs (Meta LLaMA, Qwen). Engineered cost-optimized CPU-based inference within strict enterprise security constraints — delivering AI capabilities without cloud dependency.",
+      "Architected and deployed an on-premise generative AI platform using Ollama with open-source LLMs (Meta LLaMA, Qwen). Engineered cost-optimized CPU-based inference within strict enterprise security constraints, delivering AI capabilities without cloud dependency.",
     tags: ["Ollama", "LLaMA", "Python", "Enterprise Security", "CPU Inference"],
     icon: Cpu,
     color: "blue",
@@ -63,7 +63,7 @@ export const projects = [
   },
   {
     title: "Global ERP Platform Rollout",
-    org: "UNILOG — MENA & South Africa",
+    org: "UNILOG, MENA & South Africa",
     description:
       "Directed cross-functional technical teams across multiple regions, delivering full Sage X3 enterprise implementations. Designed horizontal APIs and automation systems connecting financial, sales, and operational workflows.",
     tags: ["Sage X3", "API Design", "Multi-Region", "ERP", "Automation"],
@@ -72,7 +72,7 @@ export const projects = [
   },
   {
     title: "Enterprise WMS & Integration Architecture",
-    org: "SNS — KSA, UAE, Qatar, Lebanon",
+    org: "SNS: KSA, UAE, Qatar, Lebanon",
     description:
       "Led implementation and architectural customization of WMS and ERP platforms across the GCC region. Designed Java-based integrations, analytics components, and delivered hands-on technical training for client engineering teams.",
     tags: ["Java", "WMS", "ERP", "Eclipse", "System Integration"],
@@ -83,11 +83,11 @@ export const projects = [
 
 export const about = {
   heading: "Who I Am",
-  content: `I'm Richard — an engineer who genuinely enjoys solving hard problems with great people.
+  content: `I'm Richard, an engineer who genuinely enjoys solving hard problems with great people.
 
-Over the past 8+ years, I've had the privilege of working where technology meets real impact. From deploying a generative AI platform at a central bank to rolling out enterprise systems across four countries in three languages — I love the challenge of making complex things work well.
+Over the past 8+ years, I've had the privilege of working where technology meets real impact. From deploying a generative AI platform at a central bank to rolling out enterprise systems across four countries in three languages, I love the challenge of making complex things work well.
 
-I design systems, lead teams, and bridge the gap between business needs and technical execution. My work spans AI/ML, economic data infrastructure, ERP platforms, and warehouse management — often in regulated environments where reliability and trust really matter.
+I design systems, lead teams, and bridge the gap between business needs and technical execution. My work spans AI/ML, economic data infrastructure, ERP platforms, and warehouse management, often in regulated environments where reliability and trust really matter.
 
 What drives me: building things that make a difference, alongside people I can learn from.`,
 };
@@ -208,11 +208,11 @@ export const education = [
 export const awards = [
   {
     title: "Mensa International Member",
-    description: "Top 2% — Recognized High IQ Society",
+    description: "Top 2%, Recognized High IQ Society",
   },
   {
     title: "Technology Instructor",
-    description: "Promaxis IT & C'est Bon Ottawa — Leadership & Public Speaking",
+    description: "Promaxis IT & C'est Bon Ottawa. Leadership & Public Speaking",
   },
 ];
 

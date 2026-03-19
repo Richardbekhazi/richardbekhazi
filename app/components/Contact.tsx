@@ -115,7 +115,7 @@ export const Contact = () => {
             )}
           </motion.div>
 
-          {/* Right side — links & info */}
+          {/* Right side: links & info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +161,7 @@ export const Contact = () => {
                 <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>8+ years leading engineering across 4 countries</li>
                 <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>AI/ML systems deployed in regulated environments</li>
                 <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Fluent in English, French & Arabic</li>
-                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Canadian citizen — open to relocation worldwide</li>
+                <li className="flex items-start gap-2"><span className="text-blue-500 mt-0.5">▹</span>Canadian citizen, open to relocation worldwide</li>
               </ul>
             </div>
           </motion.div>

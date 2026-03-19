@@ -17,6 +17,8 @@ export const Experience = () => {
   const phiRef = useRef(0);
   const thetaRef = useRef(0.3);
   const focusRef = useRef({ lat: 28, lng: 44 });
+  const pointerInteracting = useRef<number | null>(null);
+  const pointerInteractionMovement = useRef(0);
   const [focusIndex, setFocusIndex] = useState(0);
   const [maxRevealed, setMaxRevealed] = useState(0);
   const [globeVisible, setGlobeVisible] = useState(false);
@@ -39,7 +41,7 @@ export const Experience = () => {
     }
   }, [focusIndex, timeline]);
 
-  // Progressive markers — accumulate countries as user scrolls
+  // Progressive markers: accumulate countries as user scrolls
   const markers = useMemo(() => {
     const seen = new Set<string>();
     const result: { location: [number, number]; size: number }[] = [];
@@ -48,7 +50,7 @@ export const Experience = () => {
         const key = `${loc.lat},${loc.lng}`;
         if (!seen.has(key)) {
           seen.add(key);
-          result.push({ location: [loc.lat, loc.lng], size: 0.08 });
+          result.push({ location: [loc.lat, loc.lng], size: 0.12 });
         }
       }
     }
@@ -103,21 +105,27 @@ export const Experience = () => {
       theta: thetaRef.current,
       dark: 1,
       diffuse: 3,
-      mapSamples: 24000,
-      mapBrightness: 2.5,
-      baseColor: [0.05, 0.05, 0.15],
+      mapSamples: 40000,
+      mapBrightness: 6,
+      baseColor: [0.12, 0.14, 0.25],
       markerColor: [0.4, 0.6, 1.0],
-      glowColor: [0.05, 0.05, 0.2],
+      glowColor: [0.08, 0.08, 0.25],
       markers,
     });
 
     const animate = () => {
-      const targetPhi = -focusRef.current.lng * (Math.PI / 180);
-      const targetTheta = focusRef.current.lat * (Math.PI / 180) * 0.6;
-
-      phiRef.current += shortAngleDist(phiRef.current, targetPhi) * 0.025;
-      thetaRef.current += (targetTheta - thetaRef.current) * 0.025;
-      phiRef.current += 0.002;
+      if (pointerInteracting.current !== null) {
+        // User is dragging: apply pointer movement directly
+        phiRef.current += pointerInteractionMovement.current;
+        pointerInteractionMovement.current = 0;
+      } else {
+        // Auto-rotate toward focused country
+        const targetPhi = -focusRef.current.lng * (Math.PI / 180);
+        const targetTheta = focusRef.current.lat * (Math.PI / 180) * 0.6;
+        phiRef.current += shortAngleDist(phiRef.current, targetPhi) * 0.025;
+        thetaRef.current += (targetTheta - thetaRef.current) * 0.025;
+        phiRef.current += 0.002;
+      }
 
       globe.update({
         phi: phiRef.current,
@@ -151,7 +159,7 @@ export const Experience = () => {
             Global Journey
           </h2>
           <p className="text-slate-400 text-lg">
-            From Beirut to Ottawa — building systems across 4 countries and 3 continents.
+            From Beirut to Ottawa, building systems across 4 countries and 3 continents.
           </p>
         </motion.div>
 
@@ -169,8 +177,34 @@ export const Experience = () => {
               <canvas
                 ref={canvasRef}
                 aria-hidden="true"
-                className="w-full aspect-square bg-slate-950"
+                className="w-full aspect-square bg-slate-950 cursor-grab active:cursor-grabbing"
                 style={{ contain: "layout paint size" }}
+                onPointerDown={(e) => {
+                  pointerInteracting.current = e.clientX;
+                  canvasRef.current!.style.cursor = "grabbing";
+                }}
+                onPointerUp={() => {
+                  pointerInteracting.current = null;
+                  canvasRef.current!.style.cursor = "grab";
+                }}
+                onPointerOut={() => {
+                  pointerInteracting.current = null;
+                  if (canvasRef.current) canvasRef.current.style.cursor = "grab";
+                }}
+                onMouseMove={(e) => {
+                  if (pointerInteracting.current !== null) {
+                    const delta = e.clientX - pointerInteracting.current;
+                    pointerInteracting.current = e.clientX;
+                    pointerInteractionMovement.current = delta * 0.005;
+                  }
+                }}
+                onTouchMove={(e) => {
+                  if (pointerInteracting.current !== null && e.touches[0]) {
+                    const delta = e.touches[0].clientX - pointerInteracting.current;
+                    pointerInteracting.current = e.touches[0].clientX;
+                    pointerInteractionMovement.current = delta * 0.005;
+                  }
+                }}
               />
               <div className="absolute inset-0 bg-blue-500/5 rounded-full blur-3xl -z-10" />
             </motion.div>

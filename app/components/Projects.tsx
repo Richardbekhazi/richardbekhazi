@@ -24,7 +24,7 @@ export const Projects = () => {
             Featured Work
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl">
-            Systems I&apos;ve architected, deployed, and led — from concept through production.
+            Systems I&apos;ve architected, deployed, and led, from concept through production.
           </p>
         </motion.div>
 
