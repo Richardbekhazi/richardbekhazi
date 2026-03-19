@@ -5,6 +5,50 @@ import createGlobe from "cobe";
 import { experience } from "../../lib/data";
 import { MapPin, Briefcase } from "lucide-react";
 
+/* Country fill coordinates: many small markers to simulate highlighting the whole country */
+const COUNTRY_FILL: Record<string, [number, number][]> = {
+  Lebanon: [
+    [34.2, 35.8], [34.0, 36.0], [33.85, 35.86], [33.6, 35.6], [33.4, 35.5],
+    [34.4, 36.1], [33.9, 35.5], [33.7, 35.9],
+  ],
+  Canada: [
+    // Major cities spread
+    [45.4, -75.7], [43.7, -79.4], [45.5, -73.6], [49.3, -123.1], [51.0, -114.1],
+    [53.5, -113.5], [52.1, -106.7], [49.9, -97.1], [46.8, -71.2], [44.6, -63.6],
+    [47.6, -52.7], [62.5, -114.4], [60.7, -135.1], [63.7, -68.5],
+    // Fill coverage
+    [56.0, -120.0], [54.0, -100.0], [48.0, -85.0], [50.0, -95.0],
+    [58.0, -110.0], [55.0, -80.0], [46.0, -67.0], [52.0, -75.0],
+    [60.0, -95.0], [65.0, -120.0], [70.0, -100.0], [57.0, -105.0],
+    [50.0, -60.0], [55.0, -125.0], [48.0, -90.0], [68.0, -90.0],
+    [72.0, -110.0], [52.0, -120.0], [47.0, -80.0], [58.0, -75.0],
+    [53.0, -60.0], [60.0, -130.0], [64.0, -100.0], [44.0, -70.0],
+  ],
+  "South Africa": [
+    [-33.9, 18.4], [-26.2, 28.0], [-29.9, 31.0], [-25.7, 28.2],
+    [-33.0, 27.9], [-30.0, 25.0], [-28.0, 22.0], [-32.0, 22.0],
+    [-27.0, 30.0], [-24.0, 29.0], [-31.0, 29.0], [-26.0, 24.0],
+    [-29.0, 27.0], [-34.0, 20.0], [-25.0, 26.0], [-30.5, 23.0],
+    [-27.5, 26.0], [-33.5, 25.5],
+  ],
+  "Saudi Arabia": [
+    [24.7, 46.7], [21.5, 39.2], [26.4, 50.1], [28.0, 44.0],
+    [20.0, 42.0], [18.0, 44.0], [22.0, 48.0], [25.0, 42.0],
+    [30.0, 38.0], [23.0, 50.0], [27.0, 48.0], [19.0, 41.0],
+    [24.0, 44.0], [26.0, 44.0], [17.5, 43.0], [29.0, 40.0],
+    [21.0, 45.0], [23.5, 47.0], [25.0, 38.5], [20.5, 40.0],
+  ],
+  UAE: [
+    [24.0, 54.0], [25.2, 55.3], [24.5, 54.5], [23.5, 53.5],
+    [25.4, 55.5], [24.2, 55.8], [23.8, 53.0], [24.8, 56.0],
+    [23.6, 54.8], [24.3, 53.2],
+  ],
+  Qatar: [
+    [25.3, 51.2], [25.5, 51.3], [25.0, 51.1], [25.8, 51.4],
+    [25.1, 51.5], [25.6, 51.0], [26.0, 51.2],
+  ],
+};
+
 function shortAngleDist(from: number, to: number) {
   const max = Math.PI * 2;
   const da = ((to - from) % max + max) % max;
@@ -17,8 +61,9 @@ export const Experience = () => {
   const phiRef = useRef(0);
   const thetaRef = useRef(0.3);
   const focusRef = useRef({ lat: 28, lng: 44 });
-  const pointerInteracting = useRef<number | null>(null);
-  const pointerInteractionMovement = useRef(0);
+  const pointerStart = useRef<{ x: number; y: number } | null>(null);
+  const dragDelta = useRef({ x: 0, y: 0 });
+  const dragCooldown = useRef(0);
   const [focusIndex, setFocusIndex] = useState(0);
   const [maxRevealed, setMaxRevealed] = useState(0);
   const [globeVisible, setGlobeVisible] = useState(false);
@@ -47,10 +92,14 @@ export const Experience = () => {
     const result: { location: [number, number]; size: number }[] = [];
     for (let i = 0; i <= maxRevealed; i++) {
       for (const loc of timeline[i]?.locations || []) {
-        const key = `${loc.lat},${loc.lng}`;
-        if (!seen.has(key)) {
-          seen.add(key);
-          result.push({ location: [loc.lat, loc.lng], size: 0.12 });
+        if (!seen.has(loc.name)) {
+          seen.add(loc.name);
+          const fill = COUNTRY_FILL[loc.name];
+          if (fill) {
+            for (const pt of fill) {
+              result.push({ location: pt, size: 0.04 });
+            }
+          }
         }
       }
     }
@@ -114,16 +163,25 @@ export const Experience = () => {
     });
 
     const animate = () => {
-      if (pointerInteracting.current !== null) {
-        // User is dragging: apply pointer movement directly
-        phiRef.current += pointerInteractionMovement.current;
-        pointerInteractionMovement.current = 0;
-      } else {
+      const isDragging = pointerStart.current !== null;
+      const inCooldown = Date.now() < dragCooldown.current;
+
+      if (isDragging) {
+        // Apply drag deltas directly
+        phiRef.current += dragDelta.current.x;
+        thetaRef.current -= dragDelta.current.y;
+        // Clamp theta to avoid flipping upside down
+        thetaRef.current = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, thetaRef.current));
+        dragDelta.current = { x: 0, y: 0 };
+      } else if (!inCooldown) {
         // Auto-rotate toward focused country
         const targetPhi = -focusRef.current.lng * (Math.PI / 180);
         const targetTheta = focusRef.current.lat * (Math.PI / 180) * 0.6;
         phiRef.current += shortAngleDist(phiRef.current, targetPhi) * 0.025;
         thetaRef.current += (targetTheta - thetaRef.current) * 0.025;
+        phiRef.current += 0.002;
+      } else {
+        // In cooldown: just slow idle rotation
         phiRef.current += 0.002;
       }
 
@@ -177,32 +235,31 @@ export const Experience = () => {
               <canvas
                 ref={canvasRef}
                 aria-hidden="true"
-                className="w-full aspect-square bg-slate-950 cursor-grab active:cursor-grabbing"
+                className="w-full aspect-square bg-slate-950 rounded-full cursor-grab active:cursor-grabbing"
                 style={{ contain: "layout paint size" }}
                 onPointerDown={(e) => {
-                  pointerInteracting.current = e.clientX;
+                  pointerStart.current = { x: e.clientX, y: e.clientY };
                   canvasRef.current!.style.cursor = "grabbing";
                 }}
                 onPointerUp={() => {
-                  pointerInteracting.current = null;
-                  canvasRef.current!.style.cursor = "grab";
-                }}
-                onPointerOut={() => {
-                  pointerInteracting.current = null;
+                  pointerStart.current = null;
+                  dragCooldown.current = Date.now() + 2000;
                   if (canvasRef.current) canvasRef.current.style.cursor = "grab";
                 }}
-                onMouseMove={(e) => {
-                  if (pointerInteracting.current !== null) {
-                    const delta = e.clientX - pointerInteracting.current;
-                    pointerInteracting.current = e.clientX;
-                    pointerInteractionMovement.current = delta * 0.005;
+                onPointerOut={() => {
+                  if (pointerStart.current) {
+                    pointerStart.current = null;
+                    dragCooldown.current = Date.now() + 2000;
                   }
+                  if (canvasRef.current) canvasRef.current.style.cursor = "grab";
                 }}
-                onTouchMove={(e) => {
-                  if (pointerInteracting.current !== null && e.touches[0]) {
-                    const delta = e.touches[0].clientX - pointerInteracting.current;
-                    pointerInteracting.current = e.touches[0].clientX;
-                    pointerInteractionMovement.current = delta * 0.005;
+                onPointerMove={(e) => {
+                  if (pointerStart.current) {
+                    dragDelta.current = {
+                      x: (e.clientX - pointerStart.current.x) * 0.005,
+                      y: (e.clientY - pointerStart.current.y) * 0.005,
+                    };
+                    pointerStart.current = { x: e.clientX, y: e.clientY };
                   }
                 }}
               />
