@@ -107,6 +107,9 @@ export const experience = [
       "Led agile engineering cycles, mentoring 11 team members with sprint planning, testing, and knowledge transfer.",
       "Drove modernization of legacy enterprise platforms through performance optimization.",
     ],
+    locations: [
+      { name: "Canada", lat: 45.42, lng: -75.70 },
+    ],
   },
   {
     company: "UNILOG",
@@ -121,6 +124,9 @@ export const experience = [
       "Engineered generalized automation utilities and AI-assisted analytics for system diagnostics.",
       "Managed hands-on system deployments and technical onboarding programs.",
     ],
+    locations: [
+      { name: "South Africa", lat: -30.56, lng: 22.94 },
+    ],
   },
   {
     company: "Bank El Mawarid",
@@ -132,6 +138,9 @@ export const experience = [
       "Established robust data integrity monitoring and traceability for operational controls.",
       "Designed reporting abstractions unifying requirements across Operations, Compliance, and Management.",
       "Managed implementation of critical system updates in regulated production environments.",
+    ],
+    locations: [
+      { name: "Lebanon", lat: 33.85, lng: 35.86 },
     ],
   },
   {
@@ -145,6 +154,12 @@ export const experience = [
       "Developed foundational reporting and analytics components using Eclipse and Infor toolsets.",
       "Delivered hands-on onboarding and technical training for client engineering teams.",
       "Served as primary escalation point for diagnosing complex integration failures.",
+    ],
+    locations: [
+      { name: "Lebanon", lat: 33.85, lng: 35.86 },
+      { name: "Saudi Arabia", lat: 23.88, lng: 45.08 },
+      { name: "UAE", lat: 23.42, lng: 53.85 },
+      { name: "Qatar", lat: 25.35, lng: 51.18 },
     ],
   },
 ];
